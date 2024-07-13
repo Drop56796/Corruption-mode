@@ -103,9 +103,9 @@ local achievementGiver = loadstring(game:HttpGet("https://raw.githubusercontent.
 
 ---====== Display achievement ======---
 achievementGiver({
-    Title = "Scared of Scream Face For you",
+    Title = "Don't Scream child don't scary",
     Desc = "Don't be to slow",
-    Reason = "Encountered G95.",
+    Reason = "Encounter G95.",
     Image = "rbxassetid://3457898957"
 })
 end
