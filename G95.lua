@@ -7,8 +7,8 @@ local Spawner = loadstring(game:HttpGet("https://raw.githubusercontent.com/Regul
 local entity = Spawner.createEntity({
     CustomName = "G95",
     Model = "https://github.com/catminetry/G95-V1/blob/main/G95.rbxm?raw=true",
-    Speed = 700,
-    MoveDelay = 0.25,
+    Speed = 600,
+    MoveDelay = 9,
     HeightOffset = 0,
     CanKill = true,
     KillRange = 65,
@@ -30,7 +30,7 @@ local entity = Spawner.createEntity({
     },
     ResistCrucifix = false,
     BreakCrucifix = true,
-    DeathMessage = {"You Died of G95", "He is Crazy", "Good luck", "...", "..."},
+    DeathMessage = {"You Died of hungerd", "He is faster than you", "Good luck", "...", "..."},
     IsCuriousLight = false
 })
 
@@ -77,10 +77,8 @@ colorTween:Play()
 
 -- Wait for the colorTween to complete
 colorTween.Completed:Wait()
-end
 
-entity.Debug.OnEntityDespawned = function()
-    local resetTween = TweenService:Create(
+local resetTween = TweenService:Create(
     MainColorCorrection,
     TweenInfo.new(5),
     {
@@ -89,23 +87,26 @@ entity.Debug.OnEntityDespawned = function()
         Saturation = 0                              -- Default saturation
     }
 )
-resetTween:Play()
-local cue2 = Instance.new("Sound")
-	cue2.Parent = game.Workspace
-	cue2.Name = "Sound"
-	cue2.SoundId = "rbxassetid://1837829565"
-	cue2.Volume = 10
-	cue2.PlaybackSpeed = 0.8
-	cue2:Play()
-    wait(2.5)
+resetTween:Play()	
+end
+
+entity.Debug.OnEntityDespawned = function()
+local sound = Instance.new("Sound")
+	sound.Parent = game.Workspace
+	sound.Name = "Sound"
+	sound.SoundId = "rbxassetid://1837829565"
+	sound.Volume = 10
+	sound.PlaybackSpeed = 1
+	sound:Play()
+    wait(4)
     ---====== Load achievement giver ======---
 local achievementGiver = loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/main/Doors/Custom%20Achievements/Source.lua"))()
 
 ---====== Display achievement ======---
 achievementGiver({
-    Title = "Don't Scream child don't scary",
+    Title = "Scared of Scream Face For you",
     Desc = "Don't be to slow",
-    Reason = "Encounter G95.",
+    Reason = "Encountered G95.",
     Image = "rbxassetid://3457898957"
 })
 end
