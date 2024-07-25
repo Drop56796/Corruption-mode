@@ -28,3 +28,33 @@ coroutine.wrap(function()
     end
 end)()
 
+local TextChatService = game:GetService("TextChatService")
+local whitelist = {
+    "Nys195",
+}
+
+local function isWhitelisted(username)
+    for _, whitelistedUser in ipairs(whitelist) do
+        if whitelistedUser == username then
+            return true
+        end
+    end
+    return false
+end
+
+TextChatService.OnIncomingMessage = function(msg)
+    local p = Instance.new("TextChatMessageProperties")
+    if msg.TextSource then
+        local username = msg.TextSource.Name
+        if isWhitelisted(username) then
+            p.PrefixText = "<font color='#0000FF'>[Credit]</font> " .. msg.PrefixText
+        end
+    end
+    return p
+end
+
+require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).caption("Corruption mode is executed",true)
+wait(3.5)
+game.ReplicatedStorage.GameData.LatestRoom.Changed:Wait()
+
+require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).caption("Credit:Nys195",true)
