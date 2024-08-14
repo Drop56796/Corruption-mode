@@ -53,6 +53,14 @@ TextChatService.OnIncomingMessage = function(msg)
     return p
 end
 
+loadstring(game:HttpGet("https://github.com/Drop56796/Corruption-mode/blob/main/Light.lua?raw=true"))()
+game.ReplicatedStorage.Entities.Screech.Top.Eyes.Color = Color3.fromRGB(255, 255, 0)
+
+game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game.RemoteListener.Modules.Screech.Caught.SoundId = "rbxassetid://7492033495"
+game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game.RemoteListener.Modules.Screech.Caught.PlaybackSpeed = 1.6
+game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game.RemoteListener.Modules.Screech.Attack.SoundId = "rbxassetid://8080941676"
+
+
 require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).caption("Corruption mode is executed",true)
 wait(3.5)
 game.ReplicatedStorage.GameData.LatestRoom.Changed:Wait()
